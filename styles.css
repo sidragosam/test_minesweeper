@@ -1,0 +1,143 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  margin: 0;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+  margin: auto;
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 10px;
+  flex-direction: column;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#difficulty-selector {
+  padding: 5px;
+  margin-right: 10px;
+}
+
+#reset-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.stats {
+  display: flex;
+  gap: 15px;
+  margin-left: auto;
+  font-size: 18px;
+}
+
+#minesweeper {
+  display: grid;
+  grid-template-columns: repeat(10, 30px);
+  grid-template-rows: repeat(10, 30px);
+  gap: 2px;
+  margin-top: 10px;
+}
+
+.cell {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #bdbdbd;
+  border: 1px solid #999;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.cell:hover {
+  background-color: #a6a6a6;
+  transform: scale(1.05);
+}
+
+.cell.revealed {
+  background-color: #e0e0e0;
+  cursor: default;
+}
+
+.cell.mine {
+  background-color: red;
+}
+
+.cell.flagged {
+  background-color: yellow;
+}
+
+.cell.flagged::after {
+  content: "🚩";
+  font-size: 20px;
+}
+
+.cell.mine::after {
+  content: "💣";
+  font-size: 20px;
+}
+
+.cell[data-number="1"] {
+  color: blue;
+}
+
+.cell[data-number="2"] {
+  color: green;
+}
+
+.cell[data-number="3"] {
+  color: red;
+}
+
+.cell[data-number="4"] {
+  color: darkblue;
+}
+
+.cell[data-number="5"] {
+  color: darkred;
+}
+
+.cell[data-number="6"] {
+  color: cyan;
+}
+
+.cell[data-number="7"] {
+  color: black;
+}
+
+.cell[data-number="8"] {
+  color: gray;
+}
+
+@media (max-width: 600px) {
+  #minesweeper {
+    grid-template-columns: repeat(auto-fill, 30px);
+    grid-auto-rows: 30px;
+  }
+
+  .cell {
+    width: 30px;
+    height: 30px;
+  }
+}
